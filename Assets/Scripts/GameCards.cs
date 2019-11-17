@@ -64,7 +64,7 @@ public class GameCards : MonoBehaviour
         mobsCards.Add(new Monster("Проблемы с авторскими правами",
             "Экономить на композиторе и просто вставлять треки Audiomachine было не лучшей идеей", 0,
             Monster.Type.OutsideTroubles));
-        mobsCards.Add(new Monster("Феминистки", "Вообще не понятно, откуда они тут", 0, Monster.Type.OutsideTroubles));
+        mobsCards.Add(new Monster("Феминистки", "Вообще не понятно, при чем они тут", 0, Monster.Type.OutsideTroubles));
         mobsCards.Add(new Monster("Проблемы с балансом", "Даже в тетрисе были квадратные блоки", 0,
             Monster.Type.OutsideTroubles));
         mobsCards.Add(new Monster("Нулевая реиграбельность", "Когда была всего одна задача и всё равно не справились",
@@ -77,25 +77,30 @@ public class GameCards : MonoBehaviour
     public void GenerateImpacts()
     {
 
-        ImpactCards.Add(new Impact("Регресионное тестирование", "", 0, Impact.Type.CodeTroubles));
-        ImpactCards.Add(new Impact("Костыль", "", 0, Impact.Type.CodeTroubles));
-        ImpactCards.Add(new Impact("Божественное вмешательство", "", 0, Impact.Type.CodeTroubles));
-        ImpactCards.Add(new Impact("Отладка", "", 0, Impact.Type.CodeTroubles));
-        ImpactCards.Add(new Impact("Code review", "", 0, Impact.Type.CodeTroubles));
+        ImpactCards.Add(new Impact("Регресионное тестирование", "Никто не знает, что это, но начальство довольно", 0, Impact.Type.CodeTroubles));
+        ImpactCards.Add(new Impact("Костыль", "И так сойдет", 0, Impact.Type.CodeTroubles));
+        ImpactCards.Add(new Impact("Божественное вмешательство", "Deus ex machina", 0, Impact.Type.CodeTroubles));
+        ImpactCards.Add(new Impact("Отладка", "О, собирается, уже  неплохо", 0, Impact.Type.CodeTroubles));
+        ImpactCards.Add(new Impact("Code review", "Мама посмотрела, говорит, что я молодец", 0, Impact.Type.CodeTroubles));
+        ImpactCards.Add(new Impact("Переход на новую версию движка", "В смысле нет совместимости?", 0, Impact.Type.CodeTroubles));
 
-        ImpactCards.Add(new Impact("Премии за переработки", "", 0, Impact.Type.SocialTroubles));
-        ImpactCards.Add(new Impact("Офисный баскетбол", "", 0, Impact.Type.SocialTroubles));
-        ImpactCards.Add(new Impact("Медобследование", "", 0, Impact.Type.SocialTroubles));
-        ImpactCards.Add(new Impact("Перерыв на обед", "", 0, Impact.Type.SocialTroubles));
-        ImpactCards.Add(new Impact("Jack Daniels", "", 0, Impact.Type.SocialTroubles));
+        ImpactCards.Add(new Impact("Премии за переработки", "И эту ручку получает ...", 0, Impact.Type.SocialTroubles));
+        ImpactCards.Add(new Impact("Офисный баскетбол", "Запишем, как тимбилдинг", 0, Impact.Type.SocialTroubles));
+        ImpactCards.Add(new Impact("Медобследование", "Жаль только, что я не удосужился спросить у профессора, что такое шизофрения", 0, Impact.Type.SocialTroubles));
+        ImpactCards.Add(new Impact("Перерыв на обед", "Иногда перетекает в ужин", 0, Impact.Type.SocialTroubles));
+        ImpactCards.Add(new Impact("Jack Daniels", "Кто колы долил?!", 0, Impact.Type.SocialTroubles));
+        ImpactCards.Add(new Impact("Новые технологии управления", "-А зачем тут эти коробки с кнутами и пряниками?", 0, Impact.Type.SocialTroubles));
 
-        ImpactCards.Add(new Impact("Пост в Instagram", "", 0, Impact.Type.OutsideTroubles));
-        ImpactCards.Add(new Impact("Распродажа", "", 0, Impact.Type.OutsideTroubles));
-        ImpactCards.Add(new Impact("Игнорирование", "", 0, Impact.Type.OutsideTroubles));
-        ImpactCards.Add(new Impact("Подкуп", "", 0, Impact.Type.OutsideTroubles));
-        ImpactCards.Add(new Impact("Пресс-конференция", "", 0, Impact.Type.OutsideTroubles));
-
+        ImpactCards.Add(new Impact("Пост в Instagram", "У нас уже 5 подписчиков", 0, Impact.Type.OutsideTroubles));
+        ImpactCards.Add(new Impact("Распродажа", "Мне точно нужна эта ваза", 0, Impact.Type.OutsideTroubles));
+        ImpactCards.Add(new Impact("Игнорирование", "...", 0, Impact.Type.OutsideTroubles));
+        ImpactCards.Add(new Impact("Подкуп", "В смысле борзыми щенками вы боьше не берете?", 0, Impact.Type.OutsideTroubles));
+        ImpactCards.Add(new Impact("Пресс-конференция", "Мы ... ЭЭЭ ... тут новый дизайн кнопочки ...", 0, Impact.Type.OutsideTroubles));
+        ImpactCards.Add(new Impact("Добавление популярных технологий", "Не знаю зачем нам бокчейн, но заказчик согласен заплатить за проект в два раза больше", 0, Impact.Type.OutsideTroubles));
     }
+     
+
+
 
     public void GenerateCards()
     {
