@@ -1,0 +1,25 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Instant : Card
+{
+    public int power;
+    public Type type;
+    public Instant(string _title, string _about, string yesAction, string noAction, int _power, ) : base(_title, _about)
+    {
+        power = _power;
+        type = _type;
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
