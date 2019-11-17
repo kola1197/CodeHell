@@ -65,29 +65,37 @@ public class Labyrinth : MonoBehaviour
         _isPlayerChoosingTile = true;
         _pointOfJunction = point;
         _pointOfJunctionType = type;
-
-        List<int> tileList;
-
-        if (_pointOfJunction.GetComponent<SummonLabyrinth>().HasStashedList)
+        if (!GameManager.instance.CanWin)
         {
-            tileList = _pointOfJunction.GetComponent<SummonLabyrinth>().StashedList;
+            List<int> tileList;
+            if (_pointOfJunction.GetComponent<SummonLabyrinth>().HasStashedList)
+            {
+                tileList = _pointOfJunction.GetComponent<SummonLabyrinth>().StashedList;
+            }
+            else
+            {
+                int[] possibleTiles = HasSide(Junction.OppositeSide(type));
+                tileList = new List<int>(possibleTiles);
+                while (tileList.Count > 3)
+                {
+                    tileList.RemoveAt(UnityEngine.Random.Range(0, tileList.Count - 1));
+                }
+
+                _pointOfJunction.GetComponent<SummonLabyrinth>().StashList(tileList);
+
+            }
+
+            foreach (var tile in tileList)
+            {
+                tileButtons[tile].SetActive(true);
+            }
+
+            Debug.Log(_pointOfJunction.GetComponent<SummonLabyrinth>().HasStashedList);
         }
         else
         {
-            int[] possibleTiles = HasSide(Junction.OppositeSide(type));
-            tileList = new List<int>(possibleTiles);
-            while (tileList.Count > 3)
-            {
-                tileList.RemoveAt(UnityEngine.Random.Range(0, tileList.Count - 1));
-            }
-            _pointOfJunction.GetComponent<SummonLabyrinth>().StashList(tileList);
-  
+            
         }
-        foreach (var tile in tileList)
-        {
-            tileButtons[tile].SetActive(true);
-        }  
-        Debug.Log(_pointOfJunction.GetComponent<SummonLabyrinth>().HasStashedList);
     }
 
     public void PlaceTile(int tileNum)
