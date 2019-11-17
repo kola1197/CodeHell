@@ -121,6 +121,9 @@ public class Junction : MonoBehaviour
     {
         var delta = SideDelta(side);
         this.transform.position += delta;
+        this.transform.position =  new Vector3(Mathf.Round(this.transform.position.x),
+            Mathf.Round(this.transform.position.y),
+            Mathf.Round(this.transform.position.z));
     }
     
 
