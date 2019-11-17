@@ -76,12 +76,31 @@ public class GameCards : MonoBehaviour
 
     public void GenerateImpacts()
     {
-       ImpactCards.Add(new Impact(""));
+
+        ImpactCards.Add(new Impact("Регресионное тестирование", "", 0, Impact.Type.CodeTroubles));
+        ImpactCards.Add(new Impact("Костыль", "", 0, Impact.Type.CodeTroubles));
+        ImpactCards.Add(new Impact("Божественное вмешательство", "", 0, Impact.Type.CodeTroubles));
+        ImpactCards.Add(new Impact("Отладка", "", 0, Impact.Type.CodeTroubles));
+        ImpactCards.Add(new Impact("Code review", "", 0, Impact.Type.CodeTroubles));
+
+        ImpactCards.Add(new Impact("Премии за переработки", "", 0, Impact.Type.SocialTroubles));
+        ImpactCards.Add(new Impact("Офисный баскетбол", "", 0, Impact.Type.SocialTroubles));
+        ImpactCards.Add(new Impact("Медобследование", "", 0, Impact.Type.SocialTroubles));
+        ImpactCards.Add(new Impact("Перерыв на обед", "", 0, Impact.Type.SocialTroubles));
+        ImpactCards.Add(new Impact("Jack Daniels", "", 0, Impact.Type.SocialTroubles));
+
+        ImpactCards.Add(new Impact("Пост в Instagram", "", 0, Impact.Type.OutsideTroubles));
+        ImpactCards.Add(new Impact("Распродажа", "", 0, Impact.Type.OutsideTroubles));
+        ImpactCards.Add(new Impact("Игнорирование", "", 0, Impact.Type.OutsideTroubles));
+        ImpactCards.Add(new Impact("Подкуп", "", 0, Impact.Type.OutsideTroubles));
+        ImpactCards.Add(new Impact("Пресс-конференция", "", 0, Impact.Type.OutsideTroubles));
+
     }
 
     public void GenerateCards()
     {
         GenerateMobs();
+        GenerateImpacts();
     }
 
     Card GetCard()
