@@ -6,6 +6,8 @@ using UnityEngine.Assertions;
 public class Labyrinth : MonoBehaviour
 {
 
+    public int maxTiles = 12;
+    private int _tileCount = 0;
     public GameObject[] tilePrefabs;
     public GameObject[] tileButtons;
     public GameObject tileChosingUI;
@@ -24,12 +26,6 @@ public class Labyrinth : MonoBehaviour
         {
             button.SetActive(false); 
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private int[] HasSide(Junction.ConnectSide side)
@@ -100,6 +96,7 @@ public class Labyrinth : MonoBehaviour
         newTile.GetComponent<Junction>().ConnectTo(Junction.OppositeSide(_pointOfJunctionType));
         Destroy(_pointOfJunction.GetComponent<SummonLabyrinth>());
         CloseUi();
+        _tileCount++;
     }
     
 
