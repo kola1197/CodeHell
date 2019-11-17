@@ -62,6 +62,8 @@ public class GameManager : MonoBehaviour
     public void GameLost()
     {
         GameOver.SetActive(true);
+        _labyrinth.CloseUi();
+        playerUI.SetActive(false);
         Time.timeScale = 0;
     }
     public void ToMainMenu()
