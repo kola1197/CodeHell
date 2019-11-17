@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class GameClass : MonoBehaviour
 {
+    Card[] threeCards;
     Person person = new Person();
+    GameCards gameCards = new GameCards();
+    bool test = true;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (test)
+        {
+            collisionWithCard();
+        }
     }
 
     bool Fight(Monster card)
@@ -18,9 +24,54 @@ public class GameClass : MonoBehaviour
         {
             result = true;   
         }
+        print("Fight result - " + result.ToString());
         return result;
     }
 
+    void collisionWithCard()
+    {
+        threeCards = new Card[3];
+        for (int i=0;i<threeCards.Length;i++)
+        {
+            threeCards[i] = gameCards.GetCard();
+        }
+        ShowCards(threeCards);
+    }
+
+    void getRevard()
+    {
+        Card revard = gameCards.GetImpacts();
+        print("Revard" + revard.title + " about --- " + revard.about.ToString());
+
+    }
+
+    void ShowCards(Card [] threeCards)
+    {
+        CardChosen(1);      ////////////////////////////////////remove
+    }
+
+    void CardChosen(int i)
+    {
+        print(threeCards[i].title + " _______________" + threeCards[i].about);
+        if (threeCards[i] is Monster)
+        {
+            if (Fight((Monster)threeCards[i]))
+            {
+                getRevard();            
+            }
+            else
+            {
+                deadVoid();
+                print("YOU DEAD");
+            }
+        }
+    }
+
+
+    void deadVoid()
+    {
+
+    }
     // Update is called once per frame
     void Update()
     {

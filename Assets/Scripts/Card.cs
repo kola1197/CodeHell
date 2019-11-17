@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class Card : MonoBehaviour
 {
-    string about;
-    string title;
+    public string about;
+    public string title;
     public enum Type { CodeTroubles, SocialTroubles, OutsideTroubles }
 
 

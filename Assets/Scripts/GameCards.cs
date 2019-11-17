@@ -1,15 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+ 
 
 public class GameCards : MonoBehaviour
 {
     public List<Card> mobsCards = new List<Card>(); 
     public List<Card> ImpactCards = new List<Card>();
+    public List<Card> ItemsCards = new List<Card>();
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    public GameCards()
+    {
+        GenerateCards();
     }
 
     public void GenerateMobs()
@@ -69,14 +76,13 @@ public class GameCards : MonoBehaviour
             Monster.Type.OutsideTroubles));
         mobsCards.Add(new Monster("Нулевая реиграбельность", "Когда была всего одна задача и всё равно не справились",
             0, Monster.Type.OutsideTroubles));
-        mobsCards.Add(new Monster("СЛОЖНААААА", "ААААААААААА", 0, Monster.Type.OutsideTroubles));
+        mobsCards.Add(new Monster("Нападки сми", "-Нет мы не тестируем наше приложение на животных", 0, Monster.Type.OutsideTroubles));
         mobsCards.Add(new Monster("Творческий кризис", "Да откуда мне еще взять карточек?", 0, Monster.Type.OutsideTroubles));
 
     }
 
     public void GenerateImpacts()
     {
-
         ImpactCards.Add(new Impact("Регресионное тестирование", "Никто не знает, что это, но начальство довольно", 0, Impact.Type.CodeTroubles));
         ImpactCards.Add(new Impact("Костыль", "И так сойдет", 0, Impact.Type.CodeTroubles));
         ImpactCards.Add(new Impact("Божественное вмешательство", "Deus ex machina", 0, Impact.Type.CodeTroubles));
@@ -98,17 +104,45 @@ public class GameCards : MonoBehaviour
         ImpactCards.Add(new Impact("Пресс-конференция", "Мы ... ЭЭЭ ... тут новый дизайн кнопочки ...", 0, Impact.Type.OutsideTroubles));
         ImpactCards.Add(new Impact("Добавление популярных технологий", "Не знаю зачем нам бокчейн, но заказчик согласен заплатить за проект в два раза больше", 0, Impact.Type.OutsideTroubles));
     }
-     
 
+    public void GenerateItems()
+    {
+        ImpactCards.Add(new Impact("Коробка процессоров", "А если подключить водопровод, можно съэкономить на горячей воде", 0, Impact.Type.CodeTroubles));
+        ImpactCards.Add(new Impact("Удобные кресла", "Легким движжением превращается в кровать", 0, Impact.Type.CodeTroubles));
+        ImpactCards.Add(new Impact("Пароль от гитхаба конкурентов", "sudo rm -rf", 0, Impact.Type.CodeTroubles));
+        ImpactCards.Add(new Impact("Студенты на аутсорсе", "В трезвом виде могли бы закрыть проект за день", 0, Impact.Type.CodeTroubles));
+        ImpactCards.Add(new Impact("Лицензионный софт", "Куплен в даркнете", 0, Impact.Type.CodeTroubles));        
+
+        ImpactCards.Add(new Impact("Офисные коты", "Сотрудники в порезах, но довольные", 0, Impact.Type.SocialTroubles));
+        ImpactCards.Add(new Impact("Штатный психолог", "Хорошо, что он еще и психиатр", 0, Impact.Type.SocialTroubles));
+        ImpactCards.Add(new Impact("Стол для пинпонга", "Возможно стоит купить еще и ракетки", 0, Impact.Type.SocialTroubles));
+        ImpactCards.Add(new Impact("Набор кляпов", "Ругань на языке жестов хотя-бы тише", 0, Impact.Type.SocialTroubles));
+        ImpactCards.Add(new Impact("Кальян", "половина офиса скрыта туманом войны", 0, Impact.Type.SocialTroubles));
+
+        ImpactCards.Add(new Impact("Телефон губернатора на быстром наборе", "Не работает, но придает уверенности", 0, Impact.Type.OutsideTroubles));
+        ImpactCards.Add(new Impact("Гипножаба для переговоров", "На последнем собрании акционеров стала владельцем предприятия", 0, Impact.Type.OutsideTroubles));
+        ImpactCards.Add(new Impact("Охранные чихуахуа", "Они делают больно иначе", 0, Impact.Type.OutsideTroubles));
+        ImpactCards.Add(new Impact("Странное кольцо", "Мояяя пррреллесть", 0, Impact.Type.OutsideTroubles));
+        ImpactCards.Add(new Impact("Гей-ниггер из далекого космоса", "Эхх, был бы он трансгендером", 0, Impact.Type.OutsideTroubles));
+    }
 
 
     public void GenerateCards()
     {
         GenerateMobs();
         GenerateImpacts();
+        GenerateItems();
     }
 
-    Card GetCard()
+    public Card GetImpacts()
+    {
+        
+        Random r = new Random();
+        int i = Random.Range(0, ImpactCards.Count);
+        return ImpactCards[i];
+    }
+
+    public Card GetCard()
     {
         int index = mobsCards.Count - 1;
         Card res = mobsCards[index];
