@@ -14,7 +14,7 @@ public class GameClass : MonoBehaviour
     bool Fight(Monster card)
     {
         bool result = false;
-        if (person.power > card.power)
+        if (person.power[card.type] > card.power)
         {
             result = true;   
         }

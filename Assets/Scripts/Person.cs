@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class Person : MonoBehaviour
 {
-    public int power = 1;
+    public Dictionary<Card.Type, int> power;
     List<Item> items = new List<Item>();
     Impact SocialImpact;
     Impact CodeImpact;
     Impact OutsideImpact;
-    
+
+    public Person()
+    {
+        power.Add(Monster.Type.CodeTroubles, 1);
+        power.Add(Monster.Type.OutsideTroubles, 1);
+        power.Add(Monster.Type.SocialTroubles, 1);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +52,7 @@ public class Person : MonoBehaviour
     {
         foreach(Item item in items)
         {
-            power += item.power;
+            power[item.type] += item.power;
         }
     }
 

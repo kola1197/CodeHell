@@ -6,6 +6,8 @@ public abstract class Card : MonoBehaviour
 {
     string about;
     string title;
+    public enum Type { CodeTroubles, SocialTroubles, OutsideTroubles }
+
 
     public Card(string _about, string _title)
     {

@@ -5,7 +5,6 @@ using UnityEngine;
 public class Monster : Card
 {
     public int power;
-    public enum Type { CodeTroubles, SocialTroubles ,OutsideTroubles }
     public Type type;
     public Monster(string _title, string _about, int _power, Type _type): base (_title, _about)
     {
