@@ -9,7 +9,7 @@ public abstract class Card : MonoBehaviour
     public enum Type { CodeTroubles, SocialTroubles, OutsideTroubles }
 
 
-    public Card(string _about, string _title)
+    public Card(string _title, string _about)
     {
         about = _about;
         title = _title;

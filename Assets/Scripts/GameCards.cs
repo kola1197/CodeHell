@@ -5,13 +5,14 @@ using UnityEngine;
 public class GameCards : MonoBehaviour
 {
     public List<Card> mobsCards = new List<Card>(); 
+    public List<Card> ImpactCards = new List<Card>();
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    public void GenerateCards()
+    public void GenerateMobs()
     {
         mobsCards.Add(new Monster("Общение с клиентом", "Вы же сможете, вы же Эксперт!", 0, Monster.Type.CodeTroubles));
         mobsCards.Add(
@@ -68,6 +69,16 @@ public class GameCards : MonoBehaviour
         mobsCards.Add(new Monster("Нулевая реиграбельность", "Когда была всего одна задача и всё равно не справились",
             0, Monster.Type.OutsideTroubles));
         mobsCards.Add(new Monster("СЛОЖНААААА", "ААААААААААА", 0, Monster.Type.OutsideTroubles));
+    }
+
+    public void GenerateImpacts()
+    {
+        ImpactCards.Add(new Impact(""));
+    }
+
+    public void GenerateCards()
+    {
+        GenerateMobs();
     }
 
     Card GetCard()
