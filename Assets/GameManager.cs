@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -37,6 +38,15 @@ public class GameManager : MonoBehaviour
         _distance = finishPoint.magnitude;
     }
 
+    public void Lose()
+    {
+        _lost = true;
+    }
+
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene("_Scenes/MainMenu");
+    }
     // Update is called once per frame
     void Update()
     {
