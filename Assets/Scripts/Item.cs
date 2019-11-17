@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Card : MonoBehaviour
+public class Item : Card
 {
-    public string about;
-    public string title;
-    public enum Type { CodeTroubles, SocialTroubles, OutsideTroubles }
 
-
-    public Card(string _title, string _about)
+    public int power;
+    public Type type;
+    Item(string _title, string _about, int _power, Type _type) : base(_title, _about)
     {
-        about = _about;
-        title = _title;
+        power = _power;
+        type = _type;
     }
     // Start is called before the first frame update
     void Start()
@@ -20,12 +18,9 @@ public abstract class Card : MonoBehaviour
         
     }
 
-
     // Update is called once per frame
     void Update()
     {
         
     }
-
-    
 }

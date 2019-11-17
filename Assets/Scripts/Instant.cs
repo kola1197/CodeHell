@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : Card
+public class Instant : Card
 {
     public int power;
     public Type type;
-    public Monster(string _title, string _about, int _power, Type _type): base (_title, _about)
+
+    public Instant(string _title, string _about, string yesAction, string noAction, int _power, Type _type) : base(
+        _title, _about)
     {
         power = _power;
         type = _type;
@@ -15,14 +17,12 @@ public class Monster : Card
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
-
-
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
