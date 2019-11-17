@@ -8,7 +8,7 @@ public class Item : Card
     public int power;
     enum Type { CodeTroubles, SocialTroubles, OutsideTroubles }
     Type type;
-    Item(string _about, string _title, int _power, Type _type) : base(_about, _title)
+    Item(string _title, string _about, int _power, Type _type) : base(_title, _about)
     {
         power = _power;
         type = _type;
