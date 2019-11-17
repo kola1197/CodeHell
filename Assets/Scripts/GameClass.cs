@@ -23,6 +23,7 @@ public class GameClass : MonoBehaviour
     {
         collisionWithCard();
     }
+    
 
     void saveMostValuableItems()
     {
@@ -81,6 +82,7 @@ public class GameClass : MonoBehaviour
         {
             if (Fight((Monster)threeCards[i]))
             {
+                person.ClearImpacts();
                 getRevard();            
             }
             else
