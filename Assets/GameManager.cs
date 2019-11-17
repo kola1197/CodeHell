@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public Image positiveProgressBar;
     public Image negativeProgressBar;
     public TextMeshProUGUI ToDeadline;
-    
+    public GameObject playerUI;
     public GameObject GameClear;
     public GameObject GameOver;
 
@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
     public void Victory()
     {
         GameClear.SetActive(true);
+        _labyrinth.CloseUi();
+        playerUI.SetActive(false);
         Time.timeScale = 0;
     }
 

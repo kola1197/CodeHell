@@ -12,7 +12,8 @@ public class Labyrinth : MonoBehaviour
     public GameObject[] tilePrefabs;
     public GameObject[] tileButtons;
     public GameObject tileChosingUI;
-    
+    public GameObject VicJunctButton;
+    public GameObject VicJunct;
     private bool _isPlayerChoosingTile = false;
     private Transform _pointOfJunction;
     private Junction.ConnectSide _pointOfJunctionType;
@@ -93,9 +94,9 @@ public class Labyrinth : MonoBehaviour
 
             Debug.Log(_pointOfJunction.GetComponent<SummonLabyrinth>().HasStashedList);
         }
-        else
+else
         {
-            
+            VicJunctButton.SetActive(true);
         }
     }
 
