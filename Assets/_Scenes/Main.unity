@@ -354,7 +354,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 906761847}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93e6e962c32366941af35cc3d8476563, type: 3}
+  m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &906761852
@@ -369,8 +369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cadd54e4832aeef4b9359f44cbe335cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationRange: {x: 70, y: 70}
-  rotationSpeed: 10
+  rotationRange: {x: 30, y: 30}
+  rotationSpeed: 5
   dampingTime: 0.2
   autoZeroVerticalOnMobile: 1
   autoZeroHorizontalOnMobile: 0
