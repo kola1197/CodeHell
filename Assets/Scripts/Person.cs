@@ -12,9 +12,9 @@ public class Person : MonoBehaviour
 
     public Person()
     {
-        power.Add(Monster.Type.CodeTroubles, 1);
-        power.Add(Monster.Type.OutsideTroubles, 1);
-        power.Add(Monster.Type.SocialTroubles, 1);
+        power.Add(Card.Type.CodeTroubles, 1);
+        power.Add(Card.Type.OutsideTroubles, 1);
+        power.Add(Card.Type.SocialTroubles, 1);
     }
 
     // Start is called before the first frame update
