@@ -32,7 +32,13 @@ public class SummonLabyrinth : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.CompareTag("Player")) _labyrinthSystem.DrawTileCards(type, transform);
+        if (other.transform.CompareTag("Player"))
+        {
+            if (CheckAvailable())
+                Destroy(this);
+            else
+                _labyrinthSystem.DrawTileCards(type, transform);
+        }
     }
 
     public void StashList(List<int> listToStash)
@@ -46,11 +52,28 @@ public class SummonLabyrinth : MonoBehaviour
         if (other.transform.CompareTag("Player")) _labyrinthSystem.CloseUi();
     }
 
-    private void OnTriggerStay(Collider other)
+    private bool CheckAvailable()
     {
+        Vector3 deltaVector = new Vector3();
         switch (type)
         {
-            
+            case Junction.ConnectSide.North:
+                deltaVector = new Vector3(0, 0, 1);
+                break;
+            case Junction.ConnectSide.South:
+                deltaVector = new Vector3(0, 0, -1);
+                break;
+            case Junction.ConnectSide.East:
+                deltaVector = new Vector3(1, 0, 0);
+                break;
+            case Junction.ConnectSide.West:
+                deltaVector = new Vector3(-1, 0, 0);
+                break;
         }
+
+        return Physics.CheckSphere(transform.position + deltaVector, 1.0f, LayerMask.NameToLayer("Environment"),
+            QueryTriggerInteraction.Ignore);
+
+
     }
 }

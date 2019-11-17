@@ -98,7 +98,8 @@ public class Labyrinth : MonoBehaviour
     {
         var newTile = Instantiate(tilePrefabs[tileNum], _pointOfJunction);
         newTile.GetComponent<Junction>().ConnectTo(Junction.OppositeSide(_pointOfJunctionType));
-        
+        CloseUi();
+        Destroy(_pointOfJunction.GetComponent<SummonLabyrinth>());
     }
     
 
