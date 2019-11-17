@@ -70,19 +70,28 @@ public class Labyrinth : MonoBehaviour
         _pointOfJunction = point;
         _pointOfJunctionType = type;
 
-        int[] possibleTiles = HasSide(Junction.OppositeSide(type));
-        List<int> tileList = new List<int>(possibleTiles);
-        while (tileList.Count > 3)
-        {
-            tileList.RemoveAt(UnityEngine.Random.Range(0, tileList.Count - 1));
-        }
+        List<int> tileList;
 
+        if (_pointOfJunction.GetComponent<SummonLabyrinth>().HasStashedList)
+        {
+            tileList = _pointOfJunction.GetComponent<SummonLabyrinth>().StashedList;
+        }
+        else
+        {
+            int[] possibleTiles = HasSide(Junction.OppositeSide(type));
+            tileList = new List<int>(possibleTiles);
+            while (tileList.Count > 3)
+            {
+                tileList.RemoveAt(UnityEngine.Random.Range(0, tileList.Count - 1));
+            }
+            _pointOfJunction.GetComponent<SummonLabyrinth>().StashList(tileList);
+  
+        }
         foreach (var tile in tileList)
         {
             tileButtons[tile].SetActive(true);
-        }
-        Debug.Log(_pointOfJunction);
-        Debug.Log(_pointOfJunctionType);
+        }  
+        Debug.Log(_pointOfJunction.GetComponent<SummonLabyrinth>().HasStashedList);
     }
 
     public void PlaceTile(int tileNum)
