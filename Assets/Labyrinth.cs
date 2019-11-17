@@ -73,6 +73,8 @@ public class Labyrinth : MonoBehaviour
         {
             tileButtons[tile].SetActive(true);
         }
+        Debug.Log(_pointOfJunction);
+        Debug.Log(_pointOfJunctionType);
     }
 
     public void PlaceTile(int tileNum)
