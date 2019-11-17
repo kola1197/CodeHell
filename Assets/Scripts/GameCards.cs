@@ -107,23 +107,23 @@ public class GameCards : MonoBehaviour
 
     public void GenerateItems()
     {
-        ImpactCards.Add(new Impact("Коробка процессоров", "А если подключить водопровод, можно съэкономить на горячей воде", 0, Impact.Type.CodeTroubles));
-        ImpactCards.Add(new Impact("Удобные кресла", "Легким движжением превращается в кровать", 0, Impact.Type.CodeTroubles));
-        ImpactCards.Add(new Impact("Пароль от гитхаба конкурентов", "sudo rm -rf", 0, Impact.Type.CodeTroubles));
-        ImpactCards.Add(new Impact("Студенты на аутсорсе", "В трезвом виде могли бы закрыть проект за день", 0, Impact.Type.CodeTroubles));
-        ImpactCards.Add(new Impact("Лицензионный софт", "Куплен в даркнете", 0, Impact.Type.CodeTroubles));        
+        ItemsCards.Add(new Impact("Коробка процессоров", "А если подключить водопровод, можно съэкономить на горячей воде", 0, Impact.Type.CodeTroubles));
+        ItemsCards.Add(new Impact("Удобные кресла", "Легким движжением превращается в кровать", 0, Impact.Type.CodeTroubles));
+        ItemsCards.Add(new Impact("Пароль от гитхаба конкурентов", "sudo rm -rf", 0, Impact.Type.CodeTroubles));
+        ItemsCards.Add(new Impact("Студенты на аутсорсе", "В трезвом виде могли бы закрыть проект за день", 0, Impact.Type.CodeTroubles));
+        ItemsCards.Add(new Impact("Лицензионный софт", "Куплен в даркнете", 0, Impact.Type.CodeTroubles));
 
-        ImpactCards.Add(new Impact("Офисные коты", "Сотрудники в порезах, но довольные", 0, Impact.Type.SocialTroubles));
-        ImpactCards.Add(new Impact("Штатный психолог", "Хорошо, что он еще и психиатр", 0, Impact.Type.SocialTroubles));
-        ImpactCards.Add(new Impact("Стол для пинпонга", "Возможно стоит купить еще и ракетки", 0, Impact.Type.SocialTroubles));
-        ImpactCards.Add(new Impact("Набор кляпов", "Ругань на языке жестов хотя-бы тише", 0, Impact.Type.SocialTroubles));
-        ImpactCards.Add(new Impact("Кальян", "половина офиса скрыта туманом войны", 0, Impact.Type.SocialTroubles));
+        ItemsCards.Add(new Impact("Офисные коты", "Сотрудники в порезах, но довольные", 0, Impact.Type.SocialTroubles));
+        ItemsCards.Add(new Impact("Штатный психолог", "Хорошо, что он еще и психиатр", 0, Impact.Type.SocialTroubles));
+        ItemsCards.Add(new Impact("Стол для пинпонга", "Возможно стоит купить еще и ракетки", 0, Impact.Type.SocialTroubles));
+        ItemsCards.Add(new Impact("Набор кляпов", "Ругань на языке жестов хотя-бы тише", 0, Impact.Type.SocialTroubles));
+        ItemsCards.Add(new Impact("Кальян", "половина офиса скрыта туманом войны", 0, Impact.Type.SocialTroubles));
 
-        ImpactCards.Add(new Impact("Телефон губернатора на быстром наборе", "Не работает, но придает уверенности", 0, Impact.Type.OutsideTroubles));
-        ImpactCards.Add(new Impact("Гипножаба для переговоров", "На последнем собрании акционеров стала владельцем предприятия", 0, Impact.Type.OutsideTroubles));
-        ImpactCards.Add(new Impact("Охранные чихуахуа", "Они делают больно иначе", 0, Impact.Type.OutsideTroubles));
-        ImpactCards.Add(new Impact("Странное кольцо", "Мояяя пррреллесть", 0, Impact.Type.OutsideTroubles));
-        ImpactCards.Add(new Impact("Гей-ниггер из далекого космоса", "Эхх, был бы он трансгендером", 0, Impact.Type.OutsideTroubles));
+        ItemsCards.Add(new Impact("Телефон губернатора на быстром наборе", "Не работает, но придает уверенности", 0, Impact.Type.OutsideTroubles));
+        ItemsCards.Add(new Impact("Гипножаба для переговоров", "На последнем собрании акционеров стала владельцем предприятия", 0, Impact.Type.OutsideTroubles));
+        ItemsCards.Add(new Impact("Охранные чихуахуа", "Они делают больно иначе", 0, Impact.Type.OutsideTroubles));
+        ItemsCards.Add(new Impact("Странное кольцо", "Мояяя пррреллесть", 0, Impact.Type.OutsideTroubles));
+        ItemsCards.Add(new Impact("Гей-ниггер из далекого космоса", "Эхх, был бы он трансгендером", 0, Impact.Type.OutsideTroubles));
     }
 
 
@@ -134,12 +134,12 @@ public class GameCards : MonoBehaviour
         GenerateItems();
     }
 
-    public Card GetImpacts()
+    public Card GetItems()
     {
         
         Random r = new Random();
-        int i = Random.Range(0, ImpactCards.Count);
-        return ImpactCards[i];
+        int i = Random.Range(0, ItemsCards.Count);
+        return ItemsCards[i];
     }
 
     public Card GetCard()

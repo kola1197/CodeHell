@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class GameClass : MonoBehaviour
 {
+    public CapsuleCollider collider;
     Card[] threeCards;
     Person person = new Person();
     GameCards gameCards = new GameCards();
-    bool test = true;
+    bool test = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,11 @@ public class GameClass : MonoBehaviour
         {
             collisionWithCard();
         }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        collisionWithCard();
     }
 
     bool Fight(Monster card)
@@ -40,8 +46,8 @@ public class GameClass : MonoBehaviour
 
     void getRevard()
     {
-        Card revard = gameCards.GetImpacts();
-        print("Revard" + revard.title + " about --- " + revard.about.ToString());
+        Card revard = gameCards.GetItems();
+        print("Revard " + revard.title + " about --- " + revard.about.ToString());
 
     }
 
