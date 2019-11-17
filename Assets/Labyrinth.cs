@@ -74,7 +74,7 @@ public class Labyrinth : MonoBehaviour
         List<int> tileList = new List<int>(possibleTiles);
         while (tileList.Count > 3)
         {
-            tileList.Remove(UnityEngine.Random.Range(0, tileList.Count - 1));
+            tileList.RemoveAt(UnityEngine.Random.Range(0, tileList.Count - 1));
         }
 
         foreach (var tile in tileList)
