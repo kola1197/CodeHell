@@ -18,13 +18,13 @@ public class GameClass : MonoBehaviour
             collisionWithCard();
         }
     }
-
+/*
     void OnCollisionEnter(Collision collision)
     {
         collisionWithCard();
     }
     
-
+*/
     void saveMostValuableItems()
     {
         List<Item> savedItems = ListSerializer.Load<List<Item>>("SavedItems.bin");

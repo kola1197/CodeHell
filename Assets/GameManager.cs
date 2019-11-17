@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +11,12 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public Image positiveProgressBar;
     public Image negativeProgressBar;
+    public TextMeshProUGUI ToDeadline;
+    
+    public GameObject GameClear;
+    public GameObject GameOver;
+
+    private Labyrinth _labyrinth;
     public float victoryRange = 24.0f;
     private Vector3 _victoryPoint;
     private float _distance;
@@ -36,6 +43,7 @@ public class GameManager : MonoBehaviour
         var finishPoint = direction * UnityEngine.Random.Range(128.0f, 256.0f);
         _victoryPoint = player.transform.position + finishPoint;
         _distance = finishPoint.magnitude;
+        _labyrinth = FindObjectOfType<Labyrinth>();
     }
 
     public void Lose()
@@ -43,6 +51,17 @@ public class GameManager : MonoBehaviour
         _lost = true;
     }
 
+    public void Victory()
+    {
+        GameClear.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void GameLost()
+    {
+        GameOver.SetActive(true);
+        Time.timeScale = 0;
+    }
     public void ToMainMenu()
     {
         SceneManager.LoadScene("_Scenes/MainMenu");
@@ -50,6 +69,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ToDeadline.text = "До дедлайна: " + _labyrinth.TilesRemained;
+        if (_labyrinth.TilesRemained <= 0 && !_canWin) Lose();
+        if (player.transform.position.y < -16) Lose();
         var delta = _distance - (_victoryPoint - player.transform.position).magnitude;
         if (delta > 0)
         {
@@ -62,7 +84,7 @@ public class GameManager : MonoBehaviour
             negativeProgressBar.fillAmount = delta / (0.3f * _distance);
         }
 
-        if (Mathf.Abs(delta) < victoryRange)
+        if (Mathf.Abs(_distance - delta) < victoryRange)
         {
             _canWin = true;
         }

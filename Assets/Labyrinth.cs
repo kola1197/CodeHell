@@ -7,6 +7,7 @@ public class Labyrinth : MonoBehaviour
 {
 
     public int maxTiles = 12;
+    public int TilesRemained => (maxTiles - _tileCount);
     private int _tileCount = 0;
     public GameObject[] tilePrefabs;
     public GameObject[] tileButtons;
