@@ -41,6 +41,7 @@
           <e p="Instant.cs" t="Include" />
           <e p="Item.cs" t="Include" />
           <e p="Junction.cs" t="Include" />
+          <e p="MainMenu.cs" t="Include" />
           <e p="Monster.cs" t="Include" />
           <e p="Person.cs" t="Include" />
           <e p="TestChain.cs" t="Include" />
