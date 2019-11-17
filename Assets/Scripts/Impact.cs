@@ -6,6 +6,7 @@ public class Impact : Card
 {
     public int power;
     public Type type;
+    public bool active = false;
     public Impact(string _title, string _about, int _power, Type _type) : base(_title, _about)
     {
         power = _power;

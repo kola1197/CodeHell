@@ -9,6 +9,8 @@ public class Person : MonoBehaviour
     Impact SocialImpact;
     Impact CodeImpact;
     Impact OutsideImpact;
+    List<Impact> impacts = new List<Impact>();
+
 
     public Person()
     {
@@ -23,10 +25,31 @@ public class Person : MonoBehaviour
         
     }
 
+    public void SetAActive(int i)
+    {
+        if (impacts.Count > i)
+        {
+            impacts[i].active = true;
+        }
+    }
+
+    public void ClearImpacts()
+    {
+        List<Impact> l = impacts;
+        for (int i = 0; i < impacts.Count; i++)
+        {
+            if (impacts[i].active)
+            {
+                l.Remove(impacts[i]);
+            }
+        }
+        impacts = l;
+    }
+
     bool AddItem(Item item)
     {
         bool result = false;
-        if (items.Count < 5)
+        if (items.Count < 4)
         {
             items.Add(item);
             UpdatePower();
@@ -35,6 +58,29 @@ public class Person : MonoBehaviour
         return result;
     }
 
+    bool AddImpact(Impact item)
+    {
+        bool result = false;
+        if (impacts.Count < 3)
+        {
+            impacts.Add(item);
+            UpdatePower();
+            result = true;
+        }
+        return result;
+    }
+
+    bool RemoveImpact(int i)
+    {
+        bool result = false;
+        if (impacts.Count > i)
+        {
+            impacts.RemoveAt(i);
+            UpdatePower();
+            result = true;
+        }
+        return result;
+    }
 
     bool RemoveItem(int i)
     {
@@ -54,6 +100,14 @@ public class Person : MonoBehaviour
         {
             power[item.type] += item.power;
         }
+        foreach (Impact imp in impacts)
+        {
+            if (imp.active)
+            {
+                power[imp.type] += imp.power;
+            }
+        }
+
     }
 
     // Update is called once per frame

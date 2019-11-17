@@ -22,6 +22,7 @@ public class GameClass : MonoBehaviour
     {
         collisionWithCard();
     }
+    
 
     bool Fight(Monster card)
     {
@@ -63,6 +64,7 @@ public class GameClass : MonoBehaviour
         {
             if (Fight((Monster)threeCards[i]))
             {
+                person.ClearImpacts();
                 getRevard();            
             }
             else
