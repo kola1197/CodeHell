@@ -6,6 +6,7 @@ public class Person : MonoBehaviour
 {
     public int power = 1;
     List<Item> items = new List<Item>();
+    SocialImpact 
     // Start is called before the first frame update
     void Start()
     {
