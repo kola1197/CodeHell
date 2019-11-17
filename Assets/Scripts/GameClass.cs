@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameClass : MonoBehaviour
@@ -21,6 +22,23 @@ public class GameClass : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         collisionWithCard();
+    }
+
+    void saveMostValuableItems()
+    {
+        List<Item> savedItems = ListSerializer.Load<List<Item>>("SavedItems.bin");
+        List<Item> sortedItems = person.items.OrderByDescending(item => item.power).ToList();
+        int numOfItems = savedItems.Count() + 1;
+        if (numOfItems > 4)
+            numOfItems = 4;
+        List<Item> mostValuableItems = sortedItems.GetRange(0, numOfItems);
+        ListSerializer.Save("SavedItems.bin", mostValuableItems);
+    }
+
+    List<Item> loadMostValuableItems()
+    {
+        List<Item> loadedItems = ListSerializer.Load<List<Item>>("SavedItems.bin");
+        return loadedItems;
     }
 
     bool Fight(Monster card)

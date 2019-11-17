@@ -5,7 +5,7 @@ using UnityEngine;
 public class Person : MonoBehaviour
 {
     public Dictionary<Card.Type, int> power = new Dictionary<Card.Type, int>();
-    List<Item> items = new List<Item>();
+    public List<Item> items = new List<Item>();
     Impact SocialImpact;
     Impact CodeImpact;
     Impact OutsideImpact;
