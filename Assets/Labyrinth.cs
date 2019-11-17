@@ -69,7 +69,15 @@ public class Labyrinth : MonoBehaviour
         _isPlayerChoosingTile = true;
         _pointOfJunction = point;
         _pointOfJunctionType = type;
-        foreach (var tile in HasSide(Junction.OppositeSide(type)))
+
+        int[] possibleTiles = HasSide(Junction.OppositeSide(type));
+        List<int> tileList = new List<int>(possibleTiles);
+        while (tileList.Count > 3)
+        {
+            tileList.Remove(UnityEngine.Random.Range(0, tileList.Count - 1));
+        }
+
+        foreach (var tile in tileList)
         {
             tileButtons[tile].SetActive(true);
         }
